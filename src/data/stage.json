@@ -1,0 +1,250 @@
+{
+  "stage1": {
+    "width": 4000,
+    "height": 600,
+    "background":{
+      "image_key": "sky",
+      "image_file": "background/Sky.png"
+    },
+    "player": {
+      "sprite": {
+        "x": 32,
+        "y": 650
+      },
+      "data": {
+        "status_key": "rin"
+      }
+    },
+    "land_group": {
+      "group_data": {
+        "enableBody": true,
+        "z": 0
+      },
+      "lands": [
+        {
+          "sprite":{
+            "x": 0,
+            "y": 736
+          },
+          "data":{
+            "scaleX": 4,
+            "scaleY": 2,
+            "immovable": true,
+            "status_key": "ground"
+          }
+        },
+        {
+          "sprite":{
+            "x": 400,
+            "y": 400
+          },
+          "data":{
+            "scaleX": 1,
+            "scaleY": 1,
+            "immovable": true,
+            "status_key": "ground"
+          }
+        },
+        {
+          "sprite":{
+            "x": -150,
+            "y": 250
+          },
+          "data":{
+            "scaleX": 1,
+            "scaleY": 1,
+            "immovable": true,
+            "status_key": "ground"
+          }
+        }
+      ]
+    },
+    "item_group": {
+      "group_data":{
+        "enableBody": true
+      },
+      "items": [
+        {
+          "sprite": {
+            "x": 0,
+            "y": 0
+          },
+          "data": {
+            "gravity": {
+              "y":200
+            },
+            "bounce": {
+              "y":0.7
+            },
+            "status_key": "star"
+          }
+        },
+        {
+          "sprite": {
+            "x": 70,
+            "y": 0
+          },
+          "data": {
+            "gravity": {
+              "y":200
+            },
+            "bounce": {
+              "y":0.7
+            },
+            "status_key": "star"
+          }
+        },
+        {
+          "sprite": {
+            "x": 140,
+            "y": 0
+          },
+          "data": {
+            "gravity": {
+              "y":200
+            },
+            "bounce": {
+              "y":0.7
+            },
+            "status_key": "star"
+          }
+        },
+        {
+          "sprite": {
+            "x": 210,
+            "y": 0
+          },
+          "data": {
+            "gravity": {
+              "y":200
+            },
+            "bounce": {
+              "y":0.7
+            },
+            "status_key": "star"
+          }
+        },
+        {
+          "sprite": {
+            "x": 280,
+            "y": 0
+          },
+          "data": {
+            "gravity": {
+              "y":200
+            },
+            "bounce": {
+              "y":0.7
+            },
+            "status_key": "star"
+          }
+        },
+        {
+          "sprite": {
+            "x": 350,
+            "y": 0
+          },
+          "data": {
+            "gravity": {
+              "y":200
+            },
+            "bounce": {
+              "y":0.7
+            },
+            "status_key": "star"
+          }
+        },
+        {
+          "sprite": {
+            "x": 420,
+            "y": 0
+          },
+          "data": {
+            "gravity": {
+              "y":200
+            },
+            "bounce": {
+              "y":0.7
+            },
+            "status_key": "star"
+          }
+        },
+        {
+          "sprite": {
+            "x": 490,
+            "y": 0
+          },
+          "data": {
+            "gravity": {
+              "y":200
+            },
+            "bounce": {
+              "y":0.7
+            },
+            "status_key": "star"
+          }
+        },
+        {
+          "sprite": {
+            "x": 560,
+            "y": 0
+          },
+          "data": {
+            "gravity": {
+              "y":200
+            },
+            "bounce": {
+              "y":0.7
+            },
+            "status_key": "star"
+          }
+        },
+        {
+          "sprite": {
+            "x": 630,
+            "y": 0
+          },
+          "data": {
+            "gravity": {
+              "y":200
+            },
+            "bounce": {
+              "y":0.7
+            },
+            "status_key": "star"
+          }
+        },
+        {
+          "sprite": {
+            "x": 700,
+            "y": 0
+          },
+          "data": {
+            "gravity": {
+              "y":200
+            },
+            "bounce": {
+              "y":0.7
+            },
+            "status_key": "star"
+          }
+        },
+        {
+          "sprite": {
+            "x": 770,
+            "y": 0
+          },
+          "data": {
+            "gravity": {
+              "y":200
+            },
+            "bounce": {
+              "y":0.7
+            },
+            "status_key": "star"
+          }
+        }
+      ]
+    }
+  }
+}

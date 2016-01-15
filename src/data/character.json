@@ -1,0 +1,14 @@
+{
+  "rin": {
+    "status":{
+      "hp":100,
+      "attack":20,
+      "defense":20,
+      "speed":20
+    },
+    "image_key": "rin",
+    "image_file": "character/original2.png",
+    "width": 48,
+    "height": 48
+  }
+}

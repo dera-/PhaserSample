@@ -1,0 +1,23 @@
+{
+  "name": "PhaserSample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "babel": "babel src --out-dir dummy --source-maps",
+    "compile": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dera-",
+  "license": "ISC",
+  "dependencies": {
+    "phaser": "^2.4.4"
+  },
+  "devDependencies": {
+    "babel": "^5.8.34",
+    "babel-core": "^5.8.34",
+    "babel-loader": "^5.4.0",
+    "json-loader": "^0.5.4",
+    "webpack": "^1.12.9"
+  }
+}

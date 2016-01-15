@@ -1,0 +1,12 @@
+{
+  "game":{
+    "width": 800,
+    "height": 600,
+    "max_width": 480,
+    "max_height": 360,
+    "min_width": 1024,
+    "min_height": 768,
+    "gravity": 300,
+    "bounce_rate": 0.2
+  }
+}
