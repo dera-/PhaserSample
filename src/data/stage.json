@@ -9,7 +9,7 @@
     "player": {
       "sprite": {
         "x": 32,
-        "y": 650
+        "y": 450
       },
       "data": {
         "status_key": "rin"
@@ -24,7 +24,7 @@
         {
           "sprite":{
             "x": 0,
-            "y": 736
+            "y": 536
           },
           "data":{
             "scaleX": 4,

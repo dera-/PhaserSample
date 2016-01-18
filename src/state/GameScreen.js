@@ -76,7 +76,7 @@ export default class GameScreen {
     //  上矢印キーがおされて、かつプレイヤーが地面についていたらジャンプ
     if (this.cursors.up.isDown && player.body.touching.down)
     {
-      player.body.velocity.y = -350;
+      player.body.velocity.y = -700;//-350;
     }
   }
 }

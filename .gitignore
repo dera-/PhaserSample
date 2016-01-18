@@ -1,2 +1,4 @@
 node_modules
 htdocs/js/*
+docker/docker_run.sh
+
