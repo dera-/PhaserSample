@@ -7,7 +7,7 @@ export default class Boot {
   constructor(game) {}
   init() {
     // ワンタッチのみ(マルチタップはなし)
-    this.input.maxPointers = 1;
+    this.input.maxPointers = 3;
     this.stage.disableVisibilityChange = true;
     if (this.game.device.desktop) {
       this.scale.pageAlignHorizontally = true;

@@ -13,7 +13,8 @@ export default class GameCharacterModel extends GameObjectModel {
     this.speed = data.status.speed;
     // スプライトの初期設定
     this.sprite.body.bounce.y = Config.game.bounce_rate;
-    this.sprite.body.gravity.y = Config.game.gravity;
+    this.sprite.body.gravity.y = 3 * Config.game.gravity;
+    //this.sprite.body.maxVelocity.y = 3 * Config.game.gravity;
     this.sprite.body.collideWorldBounds = true;
     //  左右に歩くためのアニメーション
     this.sprite.animations.add('left', [3,4,5], 10, true);
@@ -27,5 +28,26 @@ export default class GameCharacterModel extends GameObjectModel {
 
   damage(value) {
     this.currentHp -= value;
+  }
+
+  moveToRight() {
+    this.sprite.body.velocity.x = this.speed;
+    this.sprite.animations.play('right');
+  }
+
+  moveToLeft() {
+    this.sprite.body.velocity.x = -1 * this.speed;
+    this.sprite.animations.play('left');
+  }
+
+  stop() {
+    this.sprite.body.velocity.x = 0;
+    this.sprite.body.velocity.y = 0;
+  }
+
+  jump() {
+    if (this.sprite.body.touching.down) {
+      this.sprite.body.velocity.y = -2 * Config.game.gravity;
+    }
   }
 }

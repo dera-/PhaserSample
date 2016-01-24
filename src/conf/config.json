@@ -6,7 +6,7 @@
     "max_height": 360,
     "min_width": 1024,
     "min_height": 768,
-    "gravity": 1000,
-    "bounce_rate": 0.2
+    "gravity": 300,
+    "bounce_rate": 0.1
   }
 }

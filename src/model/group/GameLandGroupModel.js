@@ -3,6 +3,7 @@
 import GameObjectGroupModel from './GameObjectGroupModel';
 import {ImageRepository} from '../../repository/ImageRepository';
 import GameLandData from '../../data/land.json';
+import Config from '../../conf/config.json';
 
 export default class GameLandGroupModel extends GameObjectGroupModel {
   constructor(group, groupData, landsData) {
@@ -14,12 +15,13 @@ export default class GameLandGroupModel extends GameObjectGroupModel {
   }
 
   initialize(groupData) {
-    this.group.enableBody = groupData.enableBody;
+    this.group.enableBody = true;
     this.group.z = groupData.z;
   }
   // @override
   initializeSprite(sprite, data) {
     sprite.scale.setTo(data.scaleX, data.scaleY);
     sprite.body.immovable = data.immovable;
+    sprite.body.gravity.y = -1 * Config.game.gravity;
   }
 }

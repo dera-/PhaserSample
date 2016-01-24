@@ -2,6 +2,7 @@
 
 import Config from '../conf/config.json';
 import GameCharacterHudModel from '../model/hud/GameCharacterHudModel';
+import GamePadModel from '../model/hud/GamePadModel';
 import {StageRepository} from '../repository/StageRepository';
 import {GameCharacterFactory} from '../factory/GameCharacterFactory';
 import {GameLandGroupFactory} from '../factory/GameLandGroupFactory';
@@ -11,13 +12,13 @@ import {ImageRepository} from '../repository/ImageRepository';
 // 初期設定読み込み
 export default class GameScreen {
   constructor(game) {
-    this.cursors = null;
     this.camera = null;
     this.playerModel = null;
     this.stageModel = null;
     this.backgroundSprite = null;
     this.itemGroupModel = null;
     this.playerHudModel = null;
+    this.gamepad = null;
   }
   preload() {
     let stageData = StageRepository.getStageData();
@@ -30,15 +31,16 @@ export default class GameScreen {
   create() {
     let stageData = StageRepository.getStageData(),
       backgroundImageKey = ImageRepository.getImageKey(stageData.background.image_key, stageData.background.image_file);
-    this.cursors = this.input.keyboard.createCursorKeys();
     //  物理演算エンジンとして、Arcade Physicsシステムをオンにする
     this.physics.startSystem(Phaser.Physics.ARCADE);
+    this.physics.arcade.gravity.y = Config.game.gravity;
     this.world.setBounds(0,0, stageData.width, stageData.height);
     this.backgroundSprite = this.add.tileSprite(0, 0, stageData.width, stageData.height, backgroundImageKey);
     this.playerModel = GameCharacterFactory.get(stageData.player.data.status_key, stageData.player.sprite);
     this.stageModel = GameLandGroupFactory.get(stageData.land_group);
     this.itemGroupModel = GameItemGroupFactory.get(stageData.item_group);
     this.playerHudModel = new GameCharacterHudModel(1, this.playerModel);
+    this.gamepad = new GamePadModel(this.playerModel);
     this.camera.follow(this.playerModel.getSprite());
   }
 
@@ -60,23 +62,6 @@ export default class GameScreen {
       null,
       this
     );
-
-    //  プレイヤーの移動速度をリセット
-    player.body.velocity.x = 0;
-
-    if (this.cursors.left.isDown) {
-      player.body.velocity.x = -150;
-      player.animations.play('left');
-    } else if (this.cursors.right.isDown) {
-      player.body.velocity.x = 150;
-      player.animations.play('right');
-    } else {
-      player.animations.play('stop');
-    }
-    //  上矢印キーがおされて、かつプレイヤーが地面についていたらジャンプ
-    if (this.cursors.up.isDown && player.body.touching.down)
-    {
-      player.body.velocity.y = -700;//-350;
-    }
+    this.gamepad.update();
   }
 }
