@@ -133,8 +133,8 @@ function update() {
 
   // スクロール判定
   let distance = player.body.x - Math.round(game.camera.x);
-  console.log("player.body.x:"+player.body.x);
-  console.log("game.camera.x:"+game.camera.x);
+  console.log("player.body.x:" + player.body.x);
+  console.log("game.camera.x:" + game.camera.x);
   if (game.camera.x <= 4000 && distance > 500) {
     let diff = distance - 500;
     game.camera.x += diff;

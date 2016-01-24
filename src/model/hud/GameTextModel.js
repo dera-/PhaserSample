@@ -1,13 +1,13 @@
 'use strict';
 
-export default class GameTextModel {
-  constructor(text, data={}) {
-    this.text = text;
-    this.initialize(data);
-  }
+import {GameRepository} from '../../repository/GameRepository';
 
-  // sprite等メンバ変数の初期化処理
-  initialize(data) {}
+export default class GameTextModel {
+  constructor(x, y, sentence, data = {}, fixedToCamera = true) {
+    let game = GameRepository.get();
+    this.text = game.add.text(x, y, sentence, data);
+    this.text.fixedToCamera = fixedToCamera;
+  }
 
   setText(str) {
     this.text.text = str;

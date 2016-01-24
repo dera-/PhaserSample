@@ -13,6 +13,8 @@ export default class Preload {
   preload() {
     this.stage.backgroundColor = 'navy';
     this.preloadBar = this.add.sprite((Config.game.width-311)/2, (Config.game.height-27)/2, 'preloaderBar');
+    ImageRepository.loadImage('red_gage', 'common/hp_bar_base.png');
+    ImageRepository.loadImage('green_gage', 'common/hp_bar.png');
     ImageRepository.loadImage('titlepage', 'background/Crystal.png');
     SpriteSheetRepository.loadSpriteSheet('start-button', 'button.png', 87, 48);
   }

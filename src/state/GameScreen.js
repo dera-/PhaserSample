@@ -1,7 +1,7 @@
 'use strict';
 
 import Config from '../conf/config.json';
-import GameScoreTextModel from '../model/hud/GameScoreTextModel';
+import GameCharacterHudModel from '../model/hud/GameCharacterHudModel';
 import {StageRepository} from '../repository/StageRepository';
 import {GameCharacterFactory} from '../factory/GameCharacterFactory';
 import {GameLandGroupFactory} from '../factory/GameLandGroupFactory';
@@ -15,9 +15,9 @@ export default class GameScreen {
     this.camera = null;
     this.playerModel = null;
     this.stageModel = null;
-    this.scoreTextModel = null;
     this.backgroundSprite = null;
     this.itemGroupModel = null;
+    this.playerHudModel = null;
   }
   preload() {
     let stageData = StageRepository.getStageData();
@@ -38,7 +38,7 @@ export default class GameScreen {
     this.playerModel = GameCharacterFactory.get(stageData.player.data.status_key, stageData.player.sprite);
     this.stageModel = GameLandGroupFactory.get(stageData.land_group);
     this.itemGroupModel = GameItemGroupFactory.get(stageData.item_group);
-    this.scoreTextModel = new GameScoreTextModel(this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' }));
+    this.playerHudModel = new GameCharacterHudModel(1, this.playerModel);
     this.camera.follow(this.playerModel.getSprite());
   }
 
@@ -55,7 +55,7 @@ export default class GameScreen {
       items,
       (player, item) => {
         item.kill();
-        this.scoreTextModel.updateScore(10);
+        this.playerHudModel.updateScore(10);
       },
       null,
       this
